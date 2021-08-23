@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- MAIN STYLE PAGE -->
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="calculator">
+				<div class="row">
+					<input type="text" id="calcDisplay" readonly />
+				</div>
+				<div class="row">
+					<button onclick="backSpace()">&#8592;</button>
+					<button onclick="math('ceil')">C</button>
+					<button onclick="del()">CE</button>
+					<button onclick="math('pow')">^</button>
+				</div>
+				<div class="row">
+					<button onclick="math('abs')">|x|</button>
+					<button onclick="math('round')">r</button>
+					<button onclick="math('sin')">sin</button>
+					<button onclick="math('cos')">cos</button>
+				</div>
+				<div class="row">
+					<button onclick="addToCalculator('/')">&divide;</button>
+					<button onclick="addToCalculator('*')">&times;</button>
+					<button onclick="math('sqrt')">&radic;</button>
+					<button onclick="math('floor')">&sim;</button>
+				</div>
+				<div class="row">
+					<button onclick="addToCalculator(this.innerText)">7</button>
+					<button onclick="addToCalculator(this.innerText)">8</button>
+					<button onclick="addToCalculator(this.innerText)">9</button>
+					<button onclick="addToCalculator(this.innerText)">&plus;</button>
+				</div>
+				<div class="row">
+					<button onclick="addToCalculator(this.innerText)">4</button>
+					<button onclick="addToCalculator(this.innerText)">5</button>
+					<button onclick="addToCalculator(this.innerText)">6</button>
+					<button onclick="addToCalculator(this.innerText)">%</button>
+				</div>
+				<div class="row">
+					<button onclick="addToCalculator(this.innerText)">1</button>
+					<button onclick="addToCalculator(this.innerText)">2</button>
+					<button onclick="addToCalculator(this.innerText)">3</button>
+					<button onclick="addToCalculator('-')">&minus;</button>
+				</div>
+				<div class="row row-custom">
+					<button onclick="addToCalculator(this.innerText)">0</button>
+					<button onclick="addToCalculator(this.innerText)">.</button>
+					<button onclick="clac()">&equals;</button>
+				</div>
+			</div>
+		</div>
+		<!-- MAIN JAVASCRIPT FILE (WITH VANILA JS)  -->
+		<script src="assets/js/app.js"></script>
+	</body>
+</html>
