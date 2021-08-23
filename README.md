@@ -1,7 +1,8 @@
 # Calculator
 
 ## Demo
-[Rec 0016](https://user-images.githubusercontent.com/87765316/130491583-3746d434-ccca-47dc-b2c9-6b95cb3bb426.gif)
+
+![ezgif-2-c97e0958bf7f](https://user-images.githubusercontent.com/87765316/130492459-667b45c3-79dd-48fc-be04-60886d111b59.gif)
 ---  
 ## Technologies
 - vanila js
