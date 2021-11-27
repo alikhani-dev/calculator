@@ -4,9 +4,11 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<!-- MAIN STYLE PAGE -->
-		<link rel="stylesheet" href="assets/css/style.css" />
-		<title>Document</title>
+		<!-- Style Css -->
+		<link rel="stylesheet" href="assets/Css/Style.css" />
+		<!-- JavaScript  -->
+		<script src="assets/js/app.js" defer></script>
+		<title>Calculator</title>
 	</head>
 	<body>
 		<div class="container">
@@ -17,7 +19,7 @@
 				<div class="row">
 					<button onclick="backSpace()">&#8592;</button>
 					<button onclick="math('ceil')">C</button>
-					<button onclick="del()">CE</button>
+					<button onclick="clearDisplay()">CE</button>
 					<button onclick="math('pow')">^</button>
 				</div>
 				<div class="row">
@@ -53,11 +55,9 @@
 				<div class="row row-custom">
 					<button onclick="addToCalculator(this.innerText)">0</button>
 					<button onclick="addToCalculator(this.innerText)">.</button>
-					<button onclick="clac()">&equals;</button>
+					<button onclick="calculate()">&equals;</button>
 				</div>
 			</div>
 		</div>
-		<!-- MAIN JAVASCRIPT FILE (WITH VANILA JS)  -->
-		<script src="assets/js/app.js"></script>
 	</body>
 </html>

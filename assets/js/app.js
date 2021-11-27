@@ -1,71 +1,96 @@
 const calcDisplay = document.getElementById('calcDisplay')
-const oprator = ['+', '-', '*', '/', '%', '^']
+const operators = ['+', '-', '*', '/', '%', '^']
 let checkPow = false
+
 //! --- validation value sending
 function validation (e) {
-  for (const item of oprator)
-    if (calcDisplay.value.startsWith('0') && e === item) return e
-  if (
-    (calcDisplay.value.endsWith('.') && e === '.') ||
-    (calcDisplay.value.startsWith('0') &&
-      (e == 0 || e !== '.') &&
-      calcDisplay.value[1] === undefined)
-  ) {
-    backSpace()
-    return e
+  const { value } = calcDisplay
+  //? filter operator start
+  if (value.length === 0) {
+    for (const operator of operators) {
+      if (e != '-') {
+        if (operator == e) return false
+      }
+    }
   }
-  for (const eitem of oprator)
-    for (const item of oprator)
-      if (
-        (calcDisplay.value.endsWith(item) && e == eitem) ||
-        (calcDisplay.value.length === 0 && e == item)
-      )
-        return false
+  //? filter two operator
+  if (value.length >= 1) {
+    const lastChar = value[value.length - 1]
+    for (const operator of operators) {
+      if (lastChar == operator) {
+        for (const operator_2 of operators) {
+          if (operator_2 == e) {
+            return false
+          }
+        }
+      }
+    }
+  }
+  //? filter two zero
+  if (value.length == 1 && value[0] == 0 && e == '0') {
+    return false
+  }
+  //? filter two dot
+  if (value.length >= 1) {
+      
+  }
+
   return e
 }
-//! --- Add to calculator (for Number and Oprator)
-function addToCalculator (e) {
-  validation(e) && (calcDisplay.value += validation(e))
-}
-//! --- Check End display for not exsist oprator
-function checkEnd () {
-  for (const item of oprator) if (calcDisplay.value.endsWith(item)) return false
-  return true
-}
-//! --- Method Math  ---
+
+//! ------- Method Math  -------
 function math (e) {
-  if (checkEnd()) {
-    if (e === 'pow') {
+  const { value } = calcDisplay
+  if (checkEnd() && value) {
+    if (e == 'pow') {
       checkPow = true
-      if (calcDisplay.value.length !== 0) calcDisplay.value += '^'
-    } else if (
-      (e === 'sqrt' && !String(calcDisplay.value).startsWith('-')) ||
-      e !== 'sqrt'
-    )
-      if (eval(calcDisplay.value))
-        calcDisplay.value = Math[e](eval(calcDisplay.value))
-      else calcDisplay.value = 0
+      if (value.length !== 0) {
+        calcDisplay.value += '^'
+      }
+    } else {
+      calcDisplay.value = Math[e](eval(value))
+    }
   }
 }
+
 //! ------- Calculate -------
-function clac () {
-  let pow = checkPow ? calcDisplay.value.split('^') : null
-  if (calcDisplay.value && checkEnd())
-    for (const item of oprator)
-      if (
-        calcDisplay.value.includes(item) &&
-        !calcDisplay.value.endsWith(item + '.')
-      )
-        if (pow) {
-          calcDisplay.value = Math.pow(eval(pow[0]), eval(pow[1]))
-          checkPow = false
-        } else calcDisplay.value = eval(calcDisplay.value)
+function calculate () {
+  const { value } = calcDisplay
+  let pow = checkPow ? value.split('^') : null
+  if (checkEnd() && value) {
+    if (pow) {
+      calcDisplay.value = Math.pow(eval(pow[0]), eval(pow[1]))
+      checkPow = false
+    } else {
+      calcDisplay.value = eval(value)
+    }
+  }
 }
+
+//! ------- check not exist operator last character -------
+function checkEnd () {
+  for (const operator of operators) {
+    if (calcDisplay.value.endsWith(operator)) {
+      return false
+    }
+  }
+  return true
+}
+
+//! ------- Add to calculator -------
+function addToCalculator (e) {
+  const result = validation(e)
+  if (result) {
+    calcDisplay.value += result
+  }
+}
+
 //! ------- backSpace in keybord -------
 function backSpace () {
   calcDisplay.value = calcDisplay.value.slice(0, -1)
 }
-//! ------- delete in keybord -------
-function del () {
-  calcDisplay.value = null
+
+//! ------- remove value in display -------
+function clearDisplay () {
+  calcDisplay.value = ''
 }
