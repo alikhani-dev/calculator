@@ -1,12 +1,17 @@
-# Calculator
+## Preview
 
-## Demo
+![Preview](https://user-images.githubusercontent.com/87765316/151697295-300c5f8e-ba2d-40f6-b8b1-b9ad66165ad2.gif)
 
-![ezgif-2-c97e0958bf7f](https://user-images.githubusercontent.com/87765316/130492459-667b45c3-79dd-48fc-be04-60886d111b59.gif)
----  
-## Technologies
-- vanila js
-- --
-## Contact with Me
-- [instagram](https://www.instagram.com/alikhani_developer/)
-- [linkedin](https://www.linkedin.com/in/amir-hossein-agha-alikhani-060a88217/)
+## Features
+
+- [x] Like an iPhone calculator
+
+## Tech Stack
+
+**Client:** React, React-number-format
+
+## Contact US
+
+- Email: [alikhani.dev@gmail.com](mailto:alikhani.dev@gmail.com)
+- Linkedin: [Alikhani](www.linkedin.com/in/amir-hossein-agha-alikhani-060a88217)
+- Instagram: [@alikhani_developer](https://www.instagram.com/alikhani_developer/)
