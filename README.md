@@ -8,7 +8,7 @@
 
 ## Tech Stack
 
-**Client:** React, React-number-format
+**Client:** React ,Typescript , React-number-format
 
 ## Contact US
 
